@@ -1,0 +1,8 @@
+helpful commands
+
+1.  sudo ln -s git-repos/rtcommit/rtcommit.py /usr/local/bin/rt
+
+2.  Inside .gitconfig file
+		[alias]
+			rt = !rtcommit
+
