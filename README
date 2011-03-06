@@ -24,7 +24,8 @@ so I wrote this script instead.
 
 1.  sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/rtcommit
 2.  sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt
+3.  sudo ln -s PATH_TO_THIS_REPO/.rtrc ~/
 
-3.  Inside .gitconfig file
+4.  Inside .gitconfig file
 [alias]
   rt = !rtcommit
