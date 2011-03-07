@@ -29,3 +29,5 @@ so I wrote this script instead.
 4.  Inside .gitconfig file
 [alias]
   rt = !rtcommit
+
+5. Be awesome!
