@@ -86,13 +86,13 @@ def exec_source_control_command():
 	subprocess.call(shlex.split(command))
 
 def main(argv):
-	optlist, args = getopt.getopt(argv[0:], 'h:')
+	optlist, args = getopt.getopt(argv[0:], 'p:')
 	cl_ticket_ids = args
 	optlist = dict(optlist)
 	history = read_history_file()
-	if '-h' in optlist:
+	if '-p' in optlist:
 		# Need 'map' because unicode breaks everything
-		from_history = map(str, history[:int(optlist['-h'])])
+		from_history = map(str, history[:int(optlist['-p'])])
 	else:
 		from_history = []
 	ticket_ids =  cl_ticket_ids + from_history
