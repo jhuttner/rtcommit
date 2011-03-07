@@ -8,7 +8,7 @@ so that the log is pretty and we can build release notes easily.
 I got tired of pasting subjects in from the web browser all the time,
 so I wrote this script instead.  
 
-"ELiminate the mundane so you can focus on the insane."
+"Eliminate the mundane so you can focus on the insane."
 -Me
 
 ## Dependencies
