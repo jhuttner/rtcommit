@@ -86,18 +86,15 @@ def exec_source_control_command():
 	subprocess.call(shlex.split(command))
 
 def main(argv):
-	optlist, args = getopt.getopt(argv[0:], 'b:')
+	optlist, args = getopt.getopt(argv[0:], 'h:')
 	cl_ticket_ids = args
 	optlist = dict(optlist)
 	history = read_history_file()
-	if '-b' in optlist:
+	if '-h' in optlist:
 		# Need 'map' because unicode breaks everything
-		from_history = map(str, history[:int(optlist['-b'])])
+		from_history = map(str, history[:int(optlist['-h'])])
 	else:
 		from_history = []
-	#print optlist
-	#print args
-	#return
 	ticket_ids =  cl_ticket_ids + from_history
 	if ticket_ids:
 		make_tmp_commit_file(ticket_ids)
