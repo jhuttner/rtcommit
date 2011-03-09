@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 
-# Written by Joseph Huttner - jhuttner@appnexus.com
+# Written by Joseph Huttner -- jhuttner@appnexus.com
 # Licensed under the GNU General Public License
 #
 # Change Log
@@ -27,7 +27,11 @@ except:
 
 SUBJECT_FILE = '/tmp/rtsubject'
 COMMIT_MSG_FILE = '/tmp/rtcommit'
-HISTORY_FILE = os.path.join(os.getcwd(), 'rtcommit-history.json')
+HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit-history.json')
+BLAST_FILE = os.path.join(os.getcwd(), '.rtcommit-blast.json')
+ALIASES = os.path.join(os.getcwd(), '.rtcommit-aliases.json')
+# type (person or chat)
+# screenanme
 
 def get_ticket_subject(ticket_id):
 	if int(ticket_id) == 0:
@@ -85,10 +89,18 @@ def exec_source_control_command():
 	command = 'git commit -a --edit -F /tmp/rtcommit'
 	subprocess.call(shlex.split(command))
 
+def write_blast_to_file(recipients, msg):
+	pass
+
 def main(argv):
-	optlist, args = getopt.getopt(argv[0:], 'p:')
+	optlist, args = getopt.getopt(argv[0:], 'p:', ['blast=', 'blast-msg='])
 	cl_ticket_ids = args
 	optlist = dict(optlist)
+	#print optlist
+	#return
+	if '--blast' in optlist and '--blast-msg' in optlist:
+		write_blast_to_file(recipients, msg)
+		# store it
 	history = read_history_file()
 	if '-p' in optlist:
 		# Need 'map' because unicode breaks everything
