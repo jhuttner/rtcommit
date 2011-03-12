@@ -31,6 +31,7 @@
 #   update hook.
 
 import base64
+
 from datetime import datetime
 import getopt
 import os
@@ -39,6 +40,7 @@ import subprocess
 import sys
 try:
   import json
+  import string
 except:
   import simplejson as json
 
