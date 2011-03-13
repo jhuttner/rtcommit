@@ -27,7 +27,7 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 
 ## Dependencies for optional XMPP (IM) component.
 
-* xmpppy, a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell. [Get it here](http://xmpppy.sourceforge.net/)
+* [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
 * An XMPP credentials file in your home directory.  Filename: xmpp-config.json
 		{
 		"username": "johns_username",
@@ -38,15 +38,14 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 		"port": 5223
 		}
 
-Note: In the config file, store your password as the base64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
+Your port may be 5222.  For help getting the client and server info, ask your OPS people.
+Note: In the config file, you must store your password as the base 64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
 
 	>>> import base64
 	>>> base64.b64encode('password')
 	'cGFzc3dvcmQ='
 	>>> base64.b64decode('cGFzc3dvcmQ=')
 	'password'
-
-Your port may be 5222.  For help getting the client and server info, ask your OPS people.
 
 ## Helpful commands
 
