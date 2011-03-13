@@ -51,7 +51,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 
 ## Installation
 
-* Inside a Git repository, create a .rtcommit folder.  Your per-repo files for rtcommit (history, blasts) will be stored here.
+* At the top level of a Git repository, create a .rtcommit folder.  Your per-repo files (history, blasts) will be stored here.
 
 ## Dependencies for optional XMPP (IM) component.
 
