@@ -28,13 +28,13 @@ Pre-populate the commit message with a blank subject and RT ticket ID 0:
 
 	git rtcommit 0
 
-Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully:
+Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.  Recipients are XMPP usernames:
 
-	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Check out this optimization."
+	git rtcommit 12345 --blast="harry@appnexus.com, larry@appnexus.com" --msg="Check out this optimization."
 
 Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups (a shortcut):
 
-	git rtcommit 12345 --blast="sb,lp" --msg="Check out this optimization."
+	git rtcommit 12345 --blast="hh,L" --msg="Check out this optimization."
 
 ## Dependencies
 
@@ -43,7 +43,9 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 *  Command-line script for accessing RT (Included in this repository)
 		You will know it works when you can type 'rt' on
 		the command line and you get an 'rt>' prompt
-*  An RT credentials file in your home directory.  Filename: .rtrc
+*  An RT credentials file in your home directory.
+		# ~/.rtrc
+
 		server https://url.of.your.rt.server
 		user MyRTusername
 		passwd MyRTpass
@@ -56,7 +58,9 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 ## Dependencies for optional XMPP (IM) component.
 
 * [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
-* An XMPP credentials file in your home directory.  Filename: xmpp-config.json
+* An XMPP credentials file in your home directory.  
+		# ~/xmpp-config.json
+
 		{
 		"username": "johns_username",
 		"nickname": "John Smith",
@@ -66,14 +70,16 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 		"port": 5223
 		}
 
-* Optional - An XMPP aliases file in your home directory.  Filename: xmpp-aliases.json
+* Optional - An XMPP aliases file in your home directory.  Groups are for multi-user chat.  
+		# ~/xmpp-aliases.json
+
 		{
 			"user": {
-				"sb": "sergey@xmpp.google.com",
-				"lp": "larry@xmpp.google.com"
+				"hh": "harry_hannukkah@appnexus.com",
+				"L": "larry@appnexus.com"
 			},
 			"group": {
-				"cr": "a_chat_room@xmpp.google.com"
+				"eng": "engineering_chat_room@appnexus.com"
 			}
 		}
 
