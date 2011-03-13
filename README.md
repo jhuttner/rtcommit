@@ -29,14 +29,14 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 
 * xmpppy, a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell. [Get it here](http://xmpppy.sourceforge.net/)
 * An XMPP credentials file in your home directory.  Filename: xmpp-config.json
-	{
-	"username": "johns_username",
-	"nickname": "John Smith",
-	"password": "cGFzc3dvcmQ=",
-	"client": "something.com",
-	"server": "xmpp.something_else.net",
-	"port": 5223
-	}
+		{
+		"username": "johns_username",
+		"nickname": "John Smith",
+		"password": "cGFzc3dvcmQ=",
+		"client": "something.com",
+		"server": "xmpp.something_else.net",
+		"port": 5223
+		}
 
 Note: In the config file, store your password as the base64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
 
