@@ -32,7 +32,7 @@ Same as earlier, but sends an XMPP message to the recipients specified in --blas
 
 	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Check out this optimization."
 
-Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addreessee lookups.  A speedup.
+Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups.  A speedup.
 
 	git rtcommit 12345 --blast="sb,lp" --msg="Thought you would like to know about this commit."
 
