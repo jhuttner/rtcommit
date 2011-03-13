@@ -41,7 +41,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 *  Python (I am using 2.6)
 *  Ruby (I am using 1.9.2)
 *  Command-line script for accessing RT (Included in this repository)
-		You will know it works when you can type 'rt' on
+		You'll know it works when you can type 'rt' on
 		the command line and you get an 'rt>' prompt
 *  An RT credentials file in your home directory.
 		# ~/.rtrc
@@ -57,7 +57,12 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 
 ## Dependencies for optional XMPP (IM) component.
 
-* [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
+* [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You'll know it works when you can import 'xmpp' from the Python shell.  You will get warnings.
+		>>> import xmpp
+		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:24: DeprecationWarning: the sha module is deprecated; use the hashlib module instead
+		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:26: DeprecationWarning: the md5 module is deprecated; use hashlib instead
+		>>> 
+
 * An XMPP credentials file in your home directory.  
 		# ~/xmpp-config.json
 
