@@ -14,7 +14,7 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 
 ## Usage
 
-From a git repo:
+The following commands would be executed at the top level of a Git repository.
 
 Pre-populate the commit message with subject from rt#12345.
 
@@ -30,7 +30,7 @@ Pre-populate the commit message with a blank subject and RT ticket ID 0
 
 Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.
 
-	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Thought you would like to know about this commit."
+	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Check out this optimization."
 
 Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addreessee lookups.  A speedup.
 
