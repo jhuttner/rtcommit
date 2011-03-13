@@ -57,39 +57,39 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 
 * [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
 * An XMPP credentials file in your home directory.  Filename: xmpp-config.json
-	{
-	"username": "johns_username",
-	"nickname": "John Smith",
-	"password": "cGFzc3dvcmQ=",
-	"client": "something.com",
-	"server": "xmpp.something_else.net",
-	"port": 5223
-	}
+		{
+		"username": "johns_username",
+		"nickname": "John Smith",
+		"password": "cGFzc3dvcmQ=",
+		"client": "something.com",
+		"server": "xmpp.something_else.net",
+		"port": 5223
+		}
 
 * Optional - An XMPP aliases file in your home directory.  Filename: xmpp-aliases.json
-	{
-		"user": {
-			"sb": "sergey@xmpp.google.com",
-			"lp": "larry@xmpp.google.com"
-		},
-		"group": {
-			"cr": "a_chat_room@xmpp.google.com"
+		{
+			"user": {
+				"sb": "sergey@xmpp.google.com",
+				"lp": "larry@xmpp.google.com"
+			},
+			"group": {
+				"cr": "a_chat_room@xmpp.google.com"
+			}
 		}
-	}
 
 * Your port may be 5222.  For help getting the client and server info, ask your OPS people.
 * Note: In the config file, you must store your password as the base 64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
 
-	>>> import base64
-	>>> base64.b64encode('password')
-	'cGFzc3dvcmQ='
-	>>> base64.b64decode('cGFzc3dvcmQ=')
-	'password'
+		>>> import base64
+		>>> base64.b64encode('password')
+		'cGFzc3dvcmQ='
+		>>> base64.b64decode('cGFzc3dvcmQ=')
+		'password'
 
 ## Helpful commands
 
 * Add to .gitignore of the repository using this tool.
-	*rtcommit*
+		*rtcommit*
 * Other:
-	sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/git-rtcommit
-	sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt
+		sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/git-rtcommit
+		sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt
