@@ -12,6 +12,30 @@ so that the log is pretty and we can build release notes easily.
 
 I got tired of pasting subjects in from the web browser all the time, so I wrote this script instead.
 
+## Usage
+
+From a git repo:
+
+Pre-populate the commit message with subject from rt#12345.
+
+	git rtcommit 12345
+
+Pre-populate the commit message with subject from rt#12345 and rt#67890
+
+	git rtcommit 12345 67890
+
+Pre-populate the commit message with a blank subject and RT ticket ID 0
+
+	git rtcommit 0
+
+Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.
+
+	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Thought you would like to know about this commit."
+
+Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addreessee lookups.  A speedup.
+
+	git rtcommit 12345 --blast="sb,lp" --msg="Thought you would like to know about this commit."
+
 ## Dependencies
 
 *  Python (I am using 2.6)
@@ -29,17 +53,28 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 
 * [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
 * An XMPP credentials file in your home directory.  Filename: xmpp-config.json
-		{
-		"username": "johns_username",
-		"nickname": "John Smith",
-		"password": "cGFzc3dvcmQ=",
-		"client": "something.com",
-		"server": "xmpp.something_else.net",
-		"port": 5223
-		}
+	{
+	"username": "johns_username",
+	"nickname": "John Smith",
+	"password": "cGFzc3dvcmQ=",
+	"client": "something.com",
+	"server": "xmpp.something_else.net",
+	"port": 5223
+	}
 
-Your port may be 5222.  For help getting the client and server info, ask your OPS people.
-Note: In the config file, you must store your password as the base 64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
+* Optional - An XMPP aliases file in your home directory.  Filename: xmpp-aliases.json
+	{
+		"user": {
+			"sb": "sergey@xmpp.google.com",
+			"lp": "larry@xmpp.google.com"
+		},
+		"group": {
+			"cr": "a_chat_room@xmpp.google.com"
+		}
+	}
+
+* Your port may be 5222.  For help getting the client and server info, ask your OPS people.
+* Note: In the config file, you must store your password as the base 64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
 
 	>>> import base64
 	>>> base64.b64encode('password')
