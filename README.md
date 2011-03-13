@@ -90,6 +90,6 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 
 * Add to .gitignore of the repository using this tool.
 		*rtcommit*
-* Other:
+* Get commands into your PATH:
 		sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/git-rtcommit
 		sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt
