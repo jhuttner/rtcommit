@@ -34,7 +34,7 @@ Same as earlier, but sends an XMPP message to the recipients specified in --blas
 
 Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups (a shortcut):
 
-	git rtcommit 12345 --blast="sb,lp" --msg="Thought you would like to know about this commit."
+	git rtcommit 12345 --blast="sb,lp" --msg="Check out this optimization."
 
 ## Dependencies
 
