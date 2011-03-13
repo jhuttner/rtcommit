@@ -63,7 +63,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:26: DeprecationWarning: the md5 module is deprecated; use hashlib instead
 		>>> 
 
-* An XMPP credentials file in your home directory.  
+* An XMPP credentials file in your home directory.  Your port may be 5222.  For help getting the client and server info, ask your server guys
 		# ~/xmpp-config.json
 
 		{
@@ -88,9 +88,8 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 			}
 		}
 
-Your port may be 5222.  For help getting the client and server info, ask your OPS people.
 
-Note: In the config file, you must store your password as the base-64 encoded value.  This does not protect the password, but prevents accidental, clear-text password viewing.
+Note: In the config file, you must store your password as the base-64 encoded value.  This prevents accidental, clear-text password viewing.  
 
 		>>> import base64
 		>>> base64.b64encode('password')
