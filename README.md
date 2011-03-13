@@ -16,23 +16,23 @@ I got tired of pasting subjects in from the web browser all the time, so I wrote
 
 The following commands would be executed at the top level of a Git repository.
 
-Pre-populate the commit message with subject from rt#12345.
+Pre-populate the commit message with subject from rt#12345:
 
 	git rtcommit 12345
 
-Pre-populate the commit message with subject from rt#12345 and rt#67890
+Pre-populate the commit message with subject from rt#12345 and rt#67890:
 
 	git rtcommit 12345 67890
 
-Pre-populate the commit message with a blank subject and RT ticket ID 0
+Pre-populate the commit message with a blank subject and RT ticket ID 0:
 
 	git rtcommit 0
 
-Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.
+Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully:
 
 	git rtcommit 12345 --blast="sergey@xmpp.google.com, larry@xmpp.google.com" --msg="Check out this optimization."
 
-Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups.  A speedup.
+Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups (a shortcut):
 
 	git rtcommit 12345 --blast="sb,lp" --msg="Thought you would like to know about this commit."
 
