@@ -49,6 +49,10 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addreesse
 		passwd MyRTpass
 		externalauth 1
 
+## Installation
+
+* Inside a Git repository, create a .rtcommit folder.  Your per-repo files for rtcommit (history, blasts) will be stored here.
+
 ## Dependencies for optional XMPP (IM) component.
 
 * [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You will know it works when you can import 'xmpp' from the Python shell.
@@ -84,5 +88,8 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addreesse
 
 ## Helpful commands
 
-*  sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/git-rtcommit
-*  sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt
+* Add to .gitignore of the repository using this tool.
+	*rtcommit*
+* Other:
+	sudo ln -s PATH_TO_THIS_REPO/rtcommit.py /usr/local/bin/git-rtcommit
+	sudo ln -s PATH_TO_THIS_REPO/rt /usr/local/bin/rt

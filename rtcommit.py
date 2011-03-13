@@ -47,7 +47,7 @@ import xmpp
 TMP_FILE = '/tmp/rtcommit'
 RT_HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit/rt-history.json')
 BLAST_FILE = os.path.join(os.getcwd(), '.rtcommit/blast.json')
-ALIAS_FILE = os.path.join(os.getcwd(), '.rtcommit/alias.json')
+ALIAS_FILE = os.path.join(os.getenv('HOME'), 'xmpp-aliases.json')
 XMPP_CONFIG_FILE = os.path.join(os.getenv('HOME'), 'xmpp-config.json')
 
 ################################################################################
