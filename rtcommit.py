@@ -148,7 +148,9 @@ class Blast(object):
     username = self.xmpp_config['username']
     password = base64.b64decode(self.xmpp_config['password'])
 
-    self.cnx = xmpp.Client(client)
+    self.cnx = xmpp.Client(client, debug=[])
+    # Turn on debugging
+    #self.cnx = xmpp.Client(client)
     self.cnx.connect(server=(server, port))
     self.cnx.auth(username, password, 'botty')
 
