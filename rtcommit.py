@@ -33,6 +33,9 @@
 # March 13
 #   Make 'git rtcommit init' set everything up.
 #   Only import xmpp when necessary
+#
+# March 14
+#  Put recipients and message inside --blast. Separate with colon.
 
 import base64
 from datetime import datetime
@@ -128,12 +131,13 @@ class Blast(object):
   def not_at_no_op(self):
     return self.blasts and 'no_op' not in self.blasts[0]
 
-  def store_blast(self, to, msg):
-    timestamp = datetime.utcnow()
+  def store_blast(self, blast):
+    to, msg = blast.split(':', 1)
     to = [s.strip() for s in to.split(',')]
+    timestamp = datetime.utcnow()
     new_blast = {
       'to': to,
-      'msg': msg,
+      'msg': msg.strip(),
       'timestamp': str(timestamp),
     }
     curr_blasts = read(BLAST_FILE, [], True)
@@ -248,7 +252,7 @@ def initialize():
 # Main function
 
 def main(argv):
-  optlist, args = getopt.getopt(argv[0:], 'p:', ['blast=', 'msg=', 'send-blast'])
+  optlist, args = getopt.getopt(argv[0:], 'p:', ['blast=', 'send-blast'])
   optlist = dict(optlist)
   if 'init' in args:
     result = initialize()
@@ -270,11 +274,10 @@ before running that command.'
       instance.send_blast()
       instance.store_no_op()
     return
-  if '--blast' in optlist and '--msg' in optlist:
-    recipients = optlist['--blast']
-    msg = optlist['--msg']
+  if '--blast' in optlist:
     instance = Blast()
-    instance.store_blast(recipients, msg)
+    blast = optlist['--blast']
+    instance.store_blast(blast)
   cl_ticket_ids = args
   history = read(RT_HISTORY_FILE, as_json=True)
   if '-p' in optlist:
