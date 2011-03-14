@@ -30,11 +30,11 @@ Pre-populate the commit message with a blank subject and RT ticket ID 0:
 
 Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.  Recipients are XMPP usernames:
 
-	git rtcommit --blast="harry@appnexus.com, larry@appnexus.com: Check out this optimization." 12345 
+	git rtcommit 12345 --blast="harry@appnexus.com, larry@appnexus.com: Check out this optimization."
 
 Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups (a shortcut):
 
-	git rtcommit --blast="hh,L: Check out this optimization." 12345
+	git rtcommit 12345 --blast="hh,L: Check out this optimization."
 
 ## Installation
 

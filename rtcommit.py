@@ -252,7 +252,7 @@ def initialize():
 # Main function
 
 def main(argv):
-  optlist, args = getopt.getopt(argv[0:], 'p:', ['blast=', 'send-blast'])
+  optlist, args = getopt.gnu_getopt(argv[0:], 'p:', ['blast=', 'send-blast'])
   optlist = dict(optlist)
   if 'init' in args:
     result = initialize()
