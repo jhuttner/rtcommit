@@ -234,7 +234,8 @@ def initialize():
     subprocess.call(shlex.split(init_history_file_cmd))
     subprocess.call(shlex.split(init_blast_file_cmd))
 
-    return 'RT Commit library initialized successfully. To remove, \'rm -rf .rtcommit\''
+    return 'RT Commit library initialized successfully. To remove, \
+\'rm -rf .rtcommit\''
 
 ################################################################################
 # Main function

@@ -69,7 +69,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:26: DeprecationWarning: the md5 module is deprecated; use hashlib instead
 		>>> 
 
-* An XMPP credentials file in your home directory.  Your port may be 5222.  For help getting the client and server info, ask your server guys
+* An XMPP credentials file in your home directory.  Your port may be 5222.  For help getting the client and server info, ask your server guys.
 		# ~/xmpp-config.json
 
 		{
