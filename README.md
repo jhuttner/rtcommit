@@ -52,7 +52,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 *  Ruby (I am using 1.9.2)
 *  Command-line script for accessing RT (included in this repository). You'll know it works when you can type 'rt' on the command line and you get an 'rt>' prompt:
 		01:~ jhuttner$ rt
-		rt> 
+		rt>
 *  An RT credentials file in your home directory.
 		# ~/.rtrc
 
@@ -63,11 +63,11 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 
 ## Dependencies for optional XMPP (IM) component.
 
-* [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You'll know it works when you can import 'xmpp' from the Python shell.  You will get warnings.
+* [xmpppy](http://xmpppy.sourceforge.net/), a Python implementation of the XMPP protocol.  You'll know it works when you can import 'xmpp' from the Python shell.  It will chirp a bit about deprecated modules:
 		>>> import xmpp
 		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:24: DeprecationWarning: the sha module is deprecated; use the hashlib module instead
 		/usr/local/lib/python2.6/site-packages/xmpppy-0.5.0rc1-py2.6.egg/xmpp/auth.py:26: DeprecationWarning: the md5 module is deprecated; use hashlib instead
-		>>> 
+		>>>
 
 * An XMPP credentials file in your home directory.  Your port may be 5222.  For help getting the client and server info, ask your server guys.
 		# ~/xmpp-config.json
@@ -81,7 +81,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 			"port": 5223
 		}
 
-* Optional - An XMPP aliases file in your home directory.  Groups are for multi-user chat.  
+* Optional - An XMPP aliases file in your home directory.  Groups are for multi-user chat.
 		# ~/xmpp-aliases.json
 
 		{
@@ -95,7 +95,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 		}
 
 
-Note: In the config file, you must store your password as the base-64 encoded value.  This prevents accidental, clear-text password viewing.  
+Note: In the config file, you must store your password as the base-64 encoded value.  This prevents accidental, clear-text password viewing.
 
 		>>> import base64
 		>>> base64.b64encode('password')
