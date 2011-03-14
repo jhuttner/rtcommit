@@ -59,7 +59,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 ## Uninstall
 
 * At the top level of the Git repository that has RT Commit installed, run the following command:
-    rm -rf .rtcommit
+		rm -rf .rtcommit
 
 ## Dependencies for optional XMPP (IM) component.
 
