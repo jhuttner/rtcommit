@@ -32,6 +32,7 @@
 #
 # March 13
 #   Make 'git rtcommit init' set everything up.
+#   Only import xmpp when necessary
 
 import base64
 from datetime import datetime
@@ -44,6 +45,7 @@ try:
   import json
 except:
   import simplejson as json
+xmpp = None
 
 TMP_FILE = '/tmp/rtcommit'
 RT_HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit/history.json')
@@ -118,6 +120,15 @@ def exec_git_commit():
 
 class Blast(object):
 
+  def __init__(self):
+    # should not be here but oh well
+    self.aliases = read(ALIAS_FILE, {}, True)
+    self.blasts = read(BLAST_FILE, [], True)
+    self.xmpp_config = read(XMPP_CONFIG_FILE, as_json=True)
+
+  def not_at_no_op(self):
+    return self.blasts and 'no_op' not in self.blasts[0]
+
   def store_blast(self, to, msg):
     timestamp = datetime.utcnow()
     to = [s.strip() for s in to.split(',')]
@@ -131,10 +142,6 @@ class Blast(object):
     write(BLAST_FILE, curr_blasts, True)
 
   def xmpp_connect(self):
-    # should not be here but oh well
-    self.aliases = read(ALIAS_FILE, {}, True)
-    self.blasts = read(BLAST_FILE, [], True)
-    self.xmpp_config = read(XMPP_CONFIG_FILE, as_json=True)
 
     client = self.xmpp_config['client']
     server = self.xmpp_config['server']
@@ -184,7 +191,7 @@ class Blast(object):
       'unknown_type': [],
     }
 
-    if self.blasts and 'no_op' not in self.blasts[0]:
+    if self.not_at_no_op():
       blast = self.blasts[0]
       for recipient in blast['to']:
         _type = self._get_alias_type(recipient)
@@ -254,11 +261,13 @@ def main(argv):
 before running that command.'
       return
   if '--send-blast' in optlist:
-    import xmpp
     instance = Blast()
-    instance.xmpp_connect()
-    instance.send_blast()
-    instance.store_no_op()
+    if instance.not_at_no_op():
+      global xmpp
+      xmpp = __import__('xmpp')
+      instance.xmpp_connect()
+      instance.send_blast()
+      instance.store_no_op()
     return
   if '--blast' in optlist and '--msg' in optlist:
     recipients = optlist['--blast']
