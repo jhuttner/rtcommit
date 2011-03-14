@@ -54,7 +54,7 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 ## Installation
 
 * At the top level of a Git repository, run the following command:
-    git rtcommit init
+		git rtcommit init
 
 ## Uninstall
 
