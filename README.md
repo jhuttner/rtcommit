@@ -30,11 +30,21 @@ Pre-populate the commit message with a blank subject and RT ticket ID 0:
 
 Same as earlier, but sends an XMPP message to the recipients specified in --blast provided commit executes successfully.  Recipients are XMPP usernames:
 
-	git rtcommit 12345 --blast="harry@appnexus.com, larry@appnexus.com: Check out this optimization."
+	git rtcommit --blast="harry@appnexus.com, larry@appnexus.com: Check out this optimization." 12345 
 
 Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee lookups (a shortcut):
 
-	git rtcommit 12345 --blast="hh,L: Check out this optimization."
+	git rtcommit --blast="hh,L: Check out this optimization." 12345
+
+## Installation
+
+* At the top level of a Git repository, run the following command:
+		git rtcommit init
+
+## Uninstall
+
+* At the top level of the Git repository that has RT Commit installed, run the following command:
+		rm -rf .rtcommit
 
 ## Dependencies
 
@@ -50,16 +60,6 @@ Same as previous, but looks in alias file at ~/xmpp-aliases.json to do addressee
 		user MyRTusername
 		passwd MyRTpass
 		externalauth 1
-
-## Installation
-
-* At the top level of a Git repository, run the following command:
-		git rtcommit init
-
-## Uninstall
-
-* At the top level of the Git repository that has RT Commit installed, run the following command:
-		rm -rf .rtcommit
 
 ## Dependencies for optional XMPP (IM) component.
 
