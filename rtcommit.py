@@ -45,7 +45,6 @@ try:
 except:
   import simplejson as json
 
-
 TMP_FILE = '/tmp/rtcommit'
 RT_HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit/history.json')
 BLAST_FILE = os.path.join(os.getcwd(), '.rtcommit/blast.json')
