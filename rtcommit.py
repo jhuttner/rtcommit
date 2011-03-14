@@ -29,6 +29,9 @@
 #   Add xmpp capability.  Requires Git post commit hook.
 #   Note: Once I switch off of git-svn the post commit hook will become a post
 #   update hook.
+#
+# March 13
+#   Make 'git rtcommit init' set everything up.
 
 import base64
 from datetime import datetime
@@ -42,10 +45,9 @@ try:
 except:
   import simplejson as json
 
-import xmpp
 
 TMP_FILE = '/tmp/rtcommit'
-RT_HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit/rt-history.json')
+RT_HISTORY_FILE = os.path.join(os.getcwd(), '.rtcommit/history.json')
 BLAST_FILE = os.path.join(os.getcwd(), '.rtcommit/blast.json')
 ALIAS_FILE = os.path.join(os.getenv('HOME'), 'xmpp-aliases.json')
 XMPP_CONFIG_FILE = os.path.join(os.getenv('HOME'), 'xmpp-config.json')
@@ -161,13 +163,11 @@ class Blast(object):
     self.cnx.send(msg)
 
   def _send_user_blast(self, to, content):
-    print 'sending USER blast to'
     msg = xmpp.Message(to, content)
     self.cnx.send(msg)
 
   def store_no_op(self):
     """No-op prohibits blast from executing."""
-    return
     curr_blasts = read(BLAST_FILE, [], True)
     curr_blasts.insert(0, {'no_op': 1})
     write(BLAST_FILE, curr_blasts, True)
@@ -207,12 +207,54 @@ class Blast(object):
         self._send_user_blast(r, msg)
 
 ################################################################################
+# Initialization functions
+
+def is_initialized():
+  look_for = os.path.join(os.getcwd(), '.rtcommit')
+  return os.path.exists(look_for)
+
+def initialize():
+  if is_initialized():
+    return 'Error.  Directory already exists.'
+  else:
+    def prepend_cwd(*items):
+      """Build up paths with os.getcwd more easily."""
+      items = list(items)
+      items.insert(0, os.getcwd())
+      return os.path.join(*items)
+
+    history_parts = ['touch', prepend_cwd('.rtcommit', 'history.json')]
+    blast_parts = ['touch', prepend_cwd('.rtcommit', 'blast.json')]
+
+    mkdir_cmd = ' '.join(['mkdir', prepend_cwd('.rtcommit')])
+    init_history_file_cmd = ' '.join(history_parts)
+    init_blast_file_cmd = ' '.join(blast_parts)
+
+    subprocess.call(shlex.split(mkdir_cmd))
+    subprocess.call(shlex.split(init_history_file_cmd))
+    subprocess.call(shlex.split(init_blast_file_cmd))
+
+    return 'RT Commit library initialized successfully. To remove, \'rm -rf .rtcommit\''
+
+################################################################################
 # Main function
 
 def main(argv):
   optlist, args = getopt.getopt(argv[0:], 'p:', ['blast=', 'msg=', 'send-blast'])
   optlist = dict(optlist)
+  if 'init' in args:
+    result = initialize()
+    print result
+    return
+  else:
+    try:
+      assert is_initialized()
+    except AssertionError:
+      print 'You must initialize RT Commit with \'git rtcommit init\' \
+before running that command.'
+      return
   if '--send-blast' in optlist:
+    import xmpp
     instance = Blast()
     instance.xmpp_connect()
     instance.send_blast()
