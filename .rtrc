@@ -1,4 +1,0 @@
-server https://url.of.your.rt.server
-user MyRTusername
-passwd MyRTpass
-externalauth 1
