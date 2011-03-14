@@ -121,7 +121,6 @@ def exec_git_commit():
 class Blast(object):
 
   def __init__(self):
-    # should not be here but oh well
     self.aliases = read(ALIAS_FILE, {}, True)
     self.blasts = read(BLAST_FILE, [], True)
     self.xmpp_config = read(XMPP_CONFIG_FILE, as_json=True)
