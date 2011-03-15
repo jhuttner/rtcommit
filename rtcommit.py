@@ -132,7 +132,11 @@ class Blast(object):
     return self.blasts and 'no_op' not in self.blasts[0]
 
   def store_blast(self, blast):
-    to, msg = blast.split(':', 1)
+    if blast.find(':') != -1:
+      to, msg = blast.split(':', 1)
+    else:
+      to = blast
+      msg = ''
     to = [s.strip() for s in to.split(',')]
     timestamp = datetime.utcnow()
     new_blast = {
