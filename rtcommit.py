@@ -83,7 +83,7 @@ def write(path, data, as_json=False):
 # RT functions
 
 def format_ticket_id(ticket_id):
-  return '00000' if int(ticket_id == 0) else ticket_id
+  return '00000' if int(ticket_id) == 0 else ticket_id
 
 def get_ticket_subject(ticket_id):
   if int(ticket_id) == 0:
